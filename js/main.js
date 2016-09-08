@@ -13,7 +13,6 @@ $(document).ready(function() {
 	
 	// Method that reads and processes the selected file
 	function upload(evt) {
-		upload=1;
 		if (!browserSupportFileUpload()) {
 			alert('The File APIs are not fully supported in this browser!');
 		} else {
@@ -39,14 +38,8 @@ $(document).ready(function() {
 		reader.readAsText(file);
 		reader.onload = function(event) {
 			var jsondata = event.target.result;
-			data = $.csv.toArrays(csvData); //using jquery.csv-0.71.js
-			arr = reformat(data);
-			//Convert data into geojson
-			geodata = {type : "FeatureCollection", features : csv2geojson(arr)};
-			//Convert data into motion format 
-			motiondata = reformat2(data);
-			// Add row table
-			myFunction();
+			var replace = jsondata.replace(/\r\n/g,"\?");
+ 			var array = replace.split('?');
 		}; // end of reader.onload
 		reader.onerror = function() {
 			alert('Unable to read ' + file.fileName);
