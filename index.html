@@ -46,26 +46,26 @@ $(document).ready(function() {
 		    // Automatically add a first row of data
 		    $('#addRow').click();*/
 		//*******************************************
-		// var reader = new FileReader();
-		// reader.readAsText(file);
-		// reader.onload = function(event) {
-		// 	//clear datetime onload
-		// 	clearInterval(clock);
-		// 	$('#displaytime').empty();
-		// 	//convert csv file into geojson
-		// 	var csvData = event.target.result;
-		// 	data = $.csv.toArrays(csvData); //using jquery.csv-0.71.js
-		// 	arr = reformat(data);
-		// 	//Convert data into geojson
-		// 	geodata = {type : "FeatureCollection", features : csv2geojson(arr)};
-		// 	//Convert data into motion format 
-		// 	motiondata = reformat2(data);
-		// 	// Add row table
-		// 	myFunction();
-		// }; // end of reader.onload
-		// reader.onerror = function() {
-		// 	alert('Unable to read ' + file.fileName);
-		// };
+		var reader = new FileReader();
+		reader.readAsText(file);
+		reader.onload = function(event) {
+			//clear datetime onload
+			clearInterval(clock);
+			$('#displaytime').empty();
+			//convert csv file into geojson
+			var csvData = event.target.result;
+			data = $.csv.toArrays(csvData); //using jquery.csv-0.71.js
+			arr = reformat(data);
+			//Convert data into geojson
+			geodata = {type : "FeatureCollection", features : csv2geojson(arr)};
+			//Convert data into motion format 
+			motiondata = reformat2(data);
+			// Add row table
+			myFunction();
+		}; // end of reader.onload
+		reader.onerror = function() {
+			alert('Unable to read ' + file.fileName);
+		};
 	}}
 }); // end of $document
 </script>
