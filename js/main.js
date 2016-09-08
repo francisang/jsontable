@@ -45,9 +45,16 @@ $(document).ready(function() {
  				var tempObj = JSON.parse(array[i]);
  				data.push(tempObj);
  			}
- 			_.each(data,function(d){
- 				console.log(d);
- 			})
+ 			data = _.each(data,function(d){
+ 				for(var key in d){
+ 					if(typeof(d[key]) == 'object'){
+ 						for(var key2 in d[key]){
+ 							d[key+'.'+key2] = d[key][key2];
+ 						}
+ 					}
+ 				}
+ 			});
+ 			console.log(data);
 		}; // end of reader.onload
 		reader.onerror = function() {
 			alert('Unable to read ' + file.fileName);
