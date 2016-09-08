@@ -51,6 +51,7 @@ $(document).ready(function() {
  						for(var key2 in d[key]){
  							d[key+'.'+key2] = d[key][key2];
  						}
+ 						delete d[key];
  					}
  				}
  			});
