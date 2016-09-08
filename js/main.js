@@ -40,6 +40,14 @@ $(document).ready(function() {
 			var jsondata = event.target.result;
 			var replace = jsondata.replace(/\r\n/g,"\?");
  			var array = replace.split('?');
+ 			var data = [];
+ 			for(var i=0; i<array.length; i++){
+ 				var tempObj = JSON.parse(array[i]);
+ 				data.push(tempObj);
+ 			}
+ 			_.each(data,function(d){
+ 				console.log(d);
+ 			})
 		}; // end of reader.onload
 		reader.onerror = function() {
 			alert('Unable to read ' + file.fileName);
