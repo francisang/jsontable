@@ -40,22 +40,37 @@ $(document).ready(function() {
 			var jsondata = event.target.result;
 			var replace = jsondata.replace(/\r\n/g,"\?");
  			var array = replace.split('?');
- 			var data = [];
+ 			var data = [],
+ 				tableArray = [];
  			for(var i=0; i<array.length; i++){
  				var tempObj = JSON.parse(array[i]);
  				data.push(tempObj);
  			}
  			data = _.each(data,function(d){
+ 				var temp = [];
  				for(var key in d){
  					if(typeof(d[key]) == 'object'){
  						for(var key2 in d[key]){
  							d[key+'.'+key2] = d[key][key2];
+ 							temp.push(d[key][key2])
  						}
  						delete d[key];
+ 					} else {
+						temp.push(d[key]);
  					}
  				}
+ 				tableArray.push(temp);
  			});
- 			console.log(data);
+ 			// get object properties
+ 			var prop = [];
+ 			for(var key in data[0]){
+ 				prop.push({'title': key});
+ 			}
+ 			//console.log(data);
+ 			$('#table').DataTable({
+        		data: tableArray,
+				columns:prop  
+		    });
 		}; // end of reader.onload
 		reader.onerror = function() {
 			alert('Unable to read ' + file.fileName);
