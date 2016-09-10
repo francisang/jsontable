@@ -62,7 +62,7 @@ $(document).ready(function() {
  				}
  				d = sortObject(d);
  				for(var k in d){
-					temp.push(d.k);
+					temp.push(d[k]);
 				}
  				tableArray.push(temp);
  			});
