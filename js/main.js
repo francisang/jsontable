@@ -67,7 +67,7 @@ $(document).ready(function() {
  				prop.push({'title': key});
  			}
  			//console.log(data);
- 			$('#table').DataTable({
+ 			$('#tableDisplay').DataTable({
         		data: tableArray,
 				columns:prop  
 		    });
