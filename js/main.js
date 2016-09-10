@@ -48,7 +48,7 @@ $(document).ready(function() {
  			}
  			data = _.each(data,function(d){
  				var temp = [];
- 				d = sortedObj(d);
+ 				d = sortObject(d);
  				for(var key in d){
  					if(typeof(d[key]) == 'object'){
  						for(var key2 in d[key]){
@@ -60,7 +60,7 @@ $(document).ready(function() {
 						temp.push(d[key]);
  					}
  				}
- 				tableArray.push(sortedObj);
+ 				tableArray.push(temp);
  			});
  			// get object properties
  			var prop = [];
