@@ -58,8 +58,9 @@ $(document).ready(function() {
  					} else {
 						temp.push(d[key]);
  					}
+ 				var sortedObj = sortObject(temp);
  				}
- 				tableArray.push(temp);
+ 				tableArray.push(sortedObj);
  			});
  			// get object properties
  			var prop = [];
@@ -76,4 +77,21 @@ $(document).ready(function() {
 			alert('Unable to read ' + file.fileName);
 		};
 	}}
+	function sortObject(o) {
+	    var sorted = {},
+	    key, a = [];
+
+	    for (key in o) {
+	        if (o.hasOwnProperty(key)) {
+	            a.push(key);
+	        }
+	    }
+
+	    a.sort();
+
+	    for (key = 0; key < a.length; key++) {
+	        sorted[a[key]] = o[a[key]];
+	    }
+	    return sorted;
+	}
 }); // end of $document
