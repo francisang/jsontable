@@ -71,7 +71,7 @@ $(document).ready(function() {
  			for(var key in data[0]){
  				prop.push({'title': key});
  			}
- 			sortObjectForValue(prop);
+ 			prop = sortObjectForValue(prop);
  			//console.log(data);
  			$('#tableDisplay').DataTable({
         		data: tableArray,
@@ -104,7 +104,8 @@ $(document).ready(function() {
 	     	value = _.pluck(o,'title');
 	    value.sort();
 	    for (var i = 0; i < value.length; i++) {
-	        sorted['title'] = value[i];
+	        var tempObj = {'title':value[i]};
+	        sorted.push(tempObj);
 	    }
 	    return sorted;
 	}
