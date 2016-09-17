@@ -73,7 +73,8 @@ $(document).ready(function() {
  			}
  			prop = sortObjectForValue(prop);
  			//console.log(data);
- 			$('#tableDisplay').DataTable({
+
+ 			var table = $('#tableDisplay').DataTable({
         		data: tableArray,
 				columns:prop  
 		    });
@@ -87,7 +88,7 @@ $(document).ready(function() {
 		        // Toggle the visibility
 		        column.visible( ! column.visible() );
 		    } );
-		    
+
 		}; // end of reader.onload
 		reader.onerror = function() {
 			alert('Unable to read ' + file.fileName);
