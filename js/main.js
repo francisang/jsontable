@@ -101,7 +101,7 @@ $(document).ready(function() {
 	}
 	function sortObjectForValue(o) {
 	    var sorted = {},
-	    var value = _.pluck(o,'title');
+	     	value = _.pluck(o,'title');
 	    value.sort();
 	    for (var i = 0; i < value.length; i++) {
 	        sorted['title'] = value[i];
