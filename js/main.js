@@ -104,7 +104,7 @@ $(document).ready(function() {
 	     	value = _.pluck(o,'title');
 	    value.sort();
 	    for (var i = 0; i < value.length; i++) {
-	        var tempObj = {'title':value[i]};
+	        var tempObj = {"title":value[i]};
 	        sorted.push(tempObj);
 	    }
 	    return sorted;
